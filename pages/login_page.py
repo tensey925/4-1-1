@@ -8,7 +8,6 @@ class LoginPage(BasePage):
         self.should_be_login_form()
         self.should_be_register_form()
 
-
     def should_be_login_url(self):
         get_url = self.browser.current_url
         assert get_url == 'http://selenium1py.pythonanywhere.com/en-gb/accounts/login/', "Wrong link is provided to get login page"
