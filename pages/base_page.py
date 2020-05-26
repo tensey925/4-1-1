@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from pages.locators import BasePageLocators
 
+
 class BasePage:
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -61,3 +62,7 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def go_to_view_basket_page(self):
+        basket_button = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
+        basket_button.click()
