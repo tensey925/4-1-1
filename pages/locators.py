@@ -20,8 +20,6 @@ class LoginPageLocators:
     REGISTRATION_CONFIRM_PASSWORD_FIELD = (By.CSS_SELECTOR, "#id_registration-password2")
 
 
-
-
 class ProductPageLocators:
     ADD_BASKET_FORM = (By.CSS_SELECTOR, "#add_to_basket_form")
     ADD_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")

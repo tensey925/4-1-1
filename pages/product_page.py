@@ -33,3 +33,15 @@ class ProductPage(BasePage):
         product_price = self.get_text_from_element(self.get_element_from_tuple(*ProductPageLocators.PRODUCT_PRICE))
         basket_amount = self.get_text_from_element(self.get_element_from_tuple(*ProductPageLocators.BASKET_AMOUNT))
         assert product_price == basket_amount, "The price is not equal to the amount in the basket"
+
+    def should_not_be_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Test expects that success message is not appeared, but if it appears - all is fine"
+
+    def should_not_be_success_message_if_nothing_in_the_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be because nothing is added to basket"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but is not disappearing"
