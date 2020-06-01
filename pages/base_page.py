@@ -18,7 +18,7 @@ class BasePage:
         return element.text
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link = self.get_element_from_tuple(*BasePageLocators.LOGIN_LINK)
         link.click()
 
     def is_disappeared(self, how, what, timeout=4):
@@ -66,3 +66,7 @@ class BasePage:
     def go_to_view_basket_page(self):
         basket_button = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
         basket_button.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
